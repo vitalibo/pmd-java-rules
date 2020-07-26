@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<ruleset name="Design Rules">
+    <description>
+        This ruleset defines the custom design rules that I use in my work.
+    </description>
+
+    <rule name="DependencyInversion"
+          message="The core class can not dependent on infrastructure"
+          class="com.github.vitalibo.pmd.lang.java.rule.design.DependencyInversionRule">
+
+        <description>
+            DependencyInversion rule catches cases where broken dependency inversion principle in onion
+            architecture, namely, if the class from the core layer has a dependency on the infrastructure layer.
+        </description>
+
+        <priority>1</priority>
+
+    </rule>
+
+</ruleset>

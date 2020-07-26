@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://pmd.sourceforge.net/rule-tests"
+        xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests http://pmd.sourceforge.net/rule-tests_1_0_0.xsd">
+
+    <test-code>
+        <description>ok, core don't has dependency on infrastructure</description>
+        <expected-problems>0</expected-problems>
+        <code><![CDATA[
+package com.github.vitalibo.core;
+
+import com.github.vitalibo.core.Bar;
+
+public class Foo {
+}
+        ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>ok, infrastructure can has dependency on core and infrastructure</description>
+        <expected-problems>0</expected-problems>
+        <code><![CDATA[
+package com.github.vitalibo.infrastructure;
+
+import com.github.vitalibo.core.Bar;
+import com.github.vitalibo.infrastructure.Baz;
+
+public class Foo {
+}
+        ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>break, core has one dependency on infrastructure</description>
+        <expected-problems>1</expected-problems>
+        <code><![CDATA[
+package com.github.vitalibo.core;
+
+import com.github.vitalibo.core.Bar;
+import com.github.vitalibo.infrastructure.Baz;
+
+public class Foo {
+}
+        ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>break, core has two dependencies on infrastructure</description>
+        <expected-problems>2</expected-problems>
+        <code><![CDATA[
+package com.github.vitalibo.core;
+
+import com.github.vitalibo.infrastructure.Bar;
+import com.github.vitalibo.infrastructure.Baz;
+
+public class Foo {
+}
+        ]]></code>
+    </test-code>
+</test-data>
