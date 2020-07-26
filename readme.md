@@ -2,6 +2,86 @@
 
 This project contains rulesets for [PMD](https://pmd.github.io) source code analyzer.
 
+## Usage
+### Maven 3
+
+In order to use PMD with [Maven](https://maven.apache.org), you need add `maven-pmd-plugin` to your `pom.xml` with following configuration:
+
+```xml
+<properties>
+    <pmd.version>6.26.0</pmd.version>
+</properties>
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>check</goal>
+                        <goal>cpd-check</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <excludeRoots>
+                    <excludeRoot>target/generated-sources</excludeRoot>
+                </excludeRoots>
+                <rulesets>
+                    <ruleset>https://raw.githubusercontent.com/vitalibo/pmd-java-rules/master/ruleset.xml</ruleset>
+                </rulesets>
+                <failOnViolation>true</failOnViolation>
+                <linkXRef>false</linkXRef>
+                <printFailingErrors>true</printFailingErrors>
+                <targetJdk>${java.version}</targetJdk>
+                <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+            </configuration>
+        </plugin>
+    </plugins>
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.13.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sourceforge.pmd</groupId>
+                        <artifactId>pmd-core</artifactId>
+                        <version>${pmd.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.sourceforge.pmd</groupId>
+                        <artifactId>pmd-java</artifactId>
+                        <version>${pmd.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.sourceforge.pmd</groupId>
+                        <artifactId>pmd-javascript</artifactId>
+                        <version>${pmd.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.sourceforge.pmd</groupId>
+                        <artifactId>pmd-jsp</artifactId>
+                        <version>${pmd.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.github.vitalibo</groupId>
+                        <artifactId>pmd-java-rules</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+</build>
+```
+more details you can find on an [official page](https://pmd.github.io/pmd-6.26.0/pmd_userdocs_tools_maven.html).
+
+## Rule Reference
 ### Design
 #### DependencyInversion
 
