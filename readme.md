@@ -2,6 +2,8 @@
 
 This project contains rulesets for [PMD](https://pmd.github.io) source code analyzer.
 
+[![Build Status](https://travis-ci.org/vitalibo/pmd-java-rules.svg?branch=master)](https://travis-ci.org/vitalibo/pmd-java-rules)
+
 ## Usage
 ### Maven 3
 
