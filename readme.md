@@ -109,3 +109,24 @@ Use this rule by referencing it:
 ```xml
 <rule ref="vitalibo/java/design.xml/DependencyInversion" />
 ```
+
+### Code Style
+#### AvoidClassName
+
+Priority: High (1)
+
+Configurable naming for classes that must avoid.
+This rule reports type declarations which match the regex that applies to class names.
+By default, this rule raises when the developer creates generic utils or helpers classes.
+
+This rule is defined by the following Java class: [com.github.vitalibo.pmd.lang.java.rule.codestyle.AvoidClassNameRule](src/main/java/com/github/vitalibo/pmd/lang/java/rule/codestyle/AvoidClassNameRule.java)
+
+Use this rule by referencing it:
+
+```xml
+<rule ref="vitalibo/java/codestyle.xml/AvoidClassName">
+    <properties>
+        <property name="pattern" value=".*(Utils?|Constants)|Translators?"/>
+    </properties>
+</rule>
+```

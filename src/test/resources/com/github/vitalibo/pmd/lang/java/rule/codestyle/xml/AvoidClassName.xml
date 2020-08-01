@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://pmd.sourceforge.net/rule-tests"
+        xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests http://pmd.sourceforge.net/rule-tests_1_0_0.xsd">
+
+    <test-code>
+        <description>ok</description>
+        <expected-problems>0</expected-problems>
+        <code><![CDATA[
+public class Foo {
+}
+        ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>ok, FooTranslator</description>
+        <expected-problems>0</expected-problems>
+        <code><![CDATA[
+public class FooTranslator {
+}
+        ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>fail, StringUtils</description>
+        <expected-problems>1</expected-problems>
+        <code><![CDATA[
+public class StringUtils {
+}
+        ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>fail, Constants</description>
+        <expected-problems>1</expected-problems>
+        <code><![CDATA[
+public class Constants {
+}
+        ]]></code>
+    </test-code>
+
+    <test-code>
+        <description>fail, Translators</description>
+        <expected-problems>1</expected-problems>
+        <code><![CDATA[
+public class Translators {
+}
+        ]]></code>
+    </test-code>
+
+</test-data>
