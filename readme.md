@@ -132,3 +132,34 @@ Use this rule by referencing it:
     </properties>
 </rule>
 ```
+
+#### BlacklistClassUsage
+
+Priority: High (1)
+
+Black-list classes which should not be used in your code.
+
+This rule is defined by the following Java class: [com.github.vitalibo.pmd.lang.java.rule.codestyle.BlacklistClassUsageRule](src/main/java/com/github/vitalibo/pmd/lang/java/rule/codestyle/BlacklistClassUsageRule.java)
+
+Example(s):
+
+```java
+import lombok.val; // bad
+
+public class Foo {
+
+    public void test() {
+        val foo = null;
+    }
+}
+```
+
+Use this rule by referencing it:
+
+```xml
+<rule ref="vitalibo/java/codestyle.xml/BlacklistClassUsage">
+    <properties>
+        <property name="classes" value="lombok.experimental.UtilityClass|lombok.experimental.var|lombok.var|lombok.val|org.apache.commons|com.google.common|com.google.gson|com.google.inject"/>
+    </properties>
+</rule>
+```

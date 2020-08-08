@@ -18,6 +18,13 @@
         </properties>
     </rule>
 
+    <rule ref="vitalibo/java/codestyle.xml/BlacklistClassUsage">
+        <properties>
+            <property name="classes"
+                      value="lombok.experimental.UtilityClass|lombok.experimental.var|lombok.var|lombok.val|org.apache.commons|com.google.common|com.google.gson|com.google.inject"/>
+        </properties>
+    </rule>
+
     <!-- Best Practices -->
     <rule ref="category/java/bestpractices.xml/ArrayIsStoredDirectly">
         <properties>

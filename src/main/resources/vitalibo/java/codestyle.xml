@@ -23,4 +23,21 @@
 
     </rule>
 
+    <rule name="BlacklistClassUsage"
+          message="Detected black-listed class usage ''{0}''"
+          class="com.github.vitalibo.pmd.lang.java.rule.codestyle.BlacklistClassUsageRule">
+
+        <description>
+            Black-list classes which should not be used in your code.
+        </description>
+
+        <priority>1</priority>
+
+        <properties>
+            <property name="classes"
+                      value="lombok.experimental.UtilityClass|lombok.experimental.var|lombok.var|lombok.val"/>
+        </properties>
+
+    </rule>
+
 </ruleset>
