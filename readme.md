@@ -83,6 +83,29 @@ In order to use PMD with [Maven](https://maven.apache.org), you need add `maven-
 ```
 more details you can find on an [official page](https://pmd.github.io/pmd-6.26.0/pmd_userdocs_tools_maven.html).
 
+If you want to use my custom rules (DependencyInversion, AvoidClassName, etc), you need add dependency on this project:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.github.vitalibo</groupId>
+        <artifactId>pmd-java-rules</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+</dependencies>
+
+<repositories>
+    <repository>
+        <id>vitalibo-mvnrepo</id>
+        <url>https://raw.github.com/vitalibo/public-maven-repository/release/</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
+```
+
 ## Rule Reference
 ### Design
 #### DependencyInversion
